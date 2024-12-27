@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dims Resto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url(gambar/makanankito.jpeg) no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        header {
+            background-color: rgba(31, 41, 51, 0.8);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #00d8ff;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            color: white;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #00d8ff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #007a99;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+            padding: 1rem;
+            z-index: 10;
+        }
+
+        .prev-button {
+            left: 10px;
+        }
+
+        .next-button {
+            right: 10px;
+        }
+        .button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #00d8ff;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        /* Bagian Menu Makanan */
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background-color: rgba(62, 78, 86, 0.9);
+        }
+
+        .menu-item {
+            background: #1f2933;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .menu-item h3 {
+            margin-top: 1rem;
+        }
+
+        .menu-item p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Menata harga pada menu */
+        .menu-item .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #f39c12;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(31, 41, 51, 0.8);
+            color: #ccc;
+            margin-top: 2rem;
+        }
+
+        .home-section {
+            display: block;
+        }
+
+        .menu-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Dims Resto</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="kontak.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Tampilan Awal (Home) -->
+    <section class="hero home-section" id="home">
+        <h1>Selamat Datang di Dims Resto</h1>
+        <p>Temukan makanan lezat di sini, hanya untuk Anda!</p>
+        <a href="menu.html" class="button">Jelajahi Menu</a>
+        
+        <!-- Carousel Gambar Menu Makanan -->
+        <div class="carousel-container">
+            <button class="carousel-button prev-button" onclick="moveCarousel(-1)">&#10094;</button>
+            <div class="carousel">
+                <img src="gambar/Ayam Goreng Crispy.jpeg" alt="Makanan 1">
+                <img src="gambar/Nasi Goreng Spesial.jpeg" alt="Makanan 2">
+                <img src="gambar/Bakso Sapi.jpeg" alt="Makanan 3">
+                <img src="gambar/mie ayam.jpeg" alt="Makanan 4">
+            </div>
+            <button class="carousel-button next-button" onclick="moveCarousel(1)">&#10095;</button>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Toko Makanan. Semua hak dilindungi.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let currentIndex = 0;
+
+        function moveCarousel(direction) {
+            const carousel = document.querySelector('.carousel');
+            const images = carousel.querySelectorAll('img');
+            const totalImages = images.length;
+            currentIndex = (currentIndex + direction + totalImages) % totalImages;
+            const offset = -currentIndex * (images[0].width + 10); // 10px margin-right
+
+            carousel.style.transform = `translateX(${offset}px)`;
+        }
+
+        document.getElementById('get-started').addEventListener('click', function() {
+            showSection('menu');
+        });
+
+        document.getElementById('home-link').addEventListener('click', function() {
+            showSection('home');
+        });
+
+        document.getElementById('menu-link').addEventListener('click', function() {
+            showSection('menu');
+        });
+
+        function showSection(section) {
+            var homeSection = document.querySelector('.home-section');
+            var menuSection = document.querySelector('.menu-section');
+
+            if (section === 'home') {
+                homeSection.style.display = 'block';
+                menuSection.style.display = 'none';
+            } else if (section === 'menu') {
+                homeSection.style.display = 'none';
+                menuSection.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
